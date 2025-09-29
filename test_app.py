@@ -1,5 +1,7 @@
-import ollama
+from ollama import chat
 
-# Use the generate function for a one-off prompt
-result = ollama.generate(model='llama3.1:8b', prompt='Why is the sky blue?')
-print(result['response'])
+conversation = [
+    {"role": "user", "content": "Hello, how are you?"}
+]
+reply = chat(model='llama2:7b', messages=conversation)
+print(reply.message.content)
